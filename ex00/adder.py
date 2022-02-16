@@ -15,19 +15,14 @@ def adder(a, b):
             carry = xorTmp & carryTmp 
         return xor 
 
-
 def make_test(a ,b):
     print(f"A == {a} and B == {b}")
-    realSum =  a + b
-    print(f"REAL SUM: {realSum}")
-    mySum = adder(a, b)
-    print(f"MY SUM: {mySum}")
+    print(f"REAL SUM: {a + b}")
+    res = adder(a, b)
+    print(f"MY SUM: {res}")
     if mySum is not None:
-        print(f"RESULT IS EQUAL TO EXPECTED : {mySum == realSum}")
+        print(f"RESULT IS EQUAL TO EXPECTED : {res == a + b}")
     print("------------------------")
-
-
-
 
 def main():
     make_test(42, 42)
@@ -35,7 +30,6 @@ def main():
     make_test(42.42, 24.24)
     make_test(2, -1)
     make_test(3, 7)
-
 
 if __name__ == "__main__":
     sys.exit(main())

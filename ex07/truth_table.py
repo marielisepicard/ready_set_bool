@@ -1,5 +1,4 @@
 import sys 
-
 from boolean_evaluation import eval_formula
 
 
@@ -37,19 +36,6 @@ def make_translation(formula, line, header):
             translation.append(elem)
     concat = ''.join(translation)
     return concat
-
-def print_table(table, header):
-    for elem in header:
-        print(f"| {elem} ", end='')
-    print('|')
-    for elem in header:
-        print("|---", end='')
-    print('|')
-    for elems in table:
-        print('|', end='')
-        for elem in elems:
-            print(f" {elem} |", end='')
-        print('')
             
 def create_truth_table(formula):
     # {'A': 0, 'B': 1, 'C': 2 ...}
@@ -63,10 +49,10 @@ def create_truth_table(formula):
         if line_result is not None:
             line.append({True: 1, False: 0}[line_result])
         else:
-            print("InputError", file=sys.stderr)
+            print("InputError")
             return None
     header["="] = 0
-    print_table(table, header)
+    return(table)
     print("------------------------")
 
 
